@@ -20,9 +20,16 @@
     <meta name="author" content="">
 
     <title>Online shopping - ${title}</title>
+    
+    <script>
+    	window.menu ='${title}';
+    </script>
 
     <!-- Bootstrap core CSS -->
     <link href="${css}/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Sketch Theme-->
+    <link href="${css}/bootstrap-sketch-theme.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="${css}/myapp.css" rel="stylesheet">
@@ -30,11 +37,15 @@
   </head>
 
   <body>
+  
+  	<div class="wrapper">
 
     <!-- Navigation -->
     <%@include file="./shared/navbar.jsp" %>
    
     <!-- Page Content -->
+    
+    <div class="content">
 	<!-- Loading the home content -->
 	<c:if test="${userClickHome == true }">
 		<%@include file="home.jsp" %>
@@ -50,13 +61,17 @@
 		<%@include file="contact.jsp" %>
 	</c:if>
 
+	</div><!-- End Content -->
     <!-- FOOTER comes here -->
     <%@include file="./shared/footer.jsp" %>
 
     <!-- Bootstrap core JavaScript -->
     <script src="${js}/jquery.js"></script>
     <script src="${js}/bootstrap.bundle.min.js"></script>
-
+	<!-- Self coded JavaScript -->
+    <script src="${js}/myapp.js"></script>
+    
+    </div><!-- End Wrapper -->
   </body>
 
 </html>
