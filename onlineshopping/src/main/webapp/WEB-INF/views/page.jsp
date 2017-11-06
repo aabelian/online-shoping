@@ -29,7 +29,7 @@
     <link href="${css}/bootstrap.min.css" rel="stylesheet">
     
     <!-- Bootstrap Sketch Theme-->
-    <link href="${css}/bootstrap-sketch-theme.css" rel="stylesheet">
+    <%-- <link href="${css}/bootstrap-sketch-theme.css" rel="stylesheet"> --%>
 
     <!-- Custom styles for this template -->
     <link href="${css}/myapp.css" rel="stylesheet">
