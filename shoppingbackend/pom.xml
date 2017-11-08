@@ -13,6 +13,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   	<spring.version>4.3.6.RELEASE</spring.version>
+  	<hibernate.version>5.2.10.Final</hibernate.version>
   </properties>
 
 	<!-- JUNIT -->
@@ -30,7 +31,37 @@
 	    <artifactId>spring-context</artifactId>
 	    <version>${spring.version}</version>
 	</dependency>
-    
+	
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-orm</artifactId>
+	    <version>${spring.version}</version>
+	</dependency>
+	
+	<!-- H2 Database -->
+    <dependency>
+	    <groupId>com.h2database</groupId>
+	    <artifactId>h2</artifactId>
+	    <version>1.4.196</version>
+	</dependency>
+	
+	<!-- Hibernate Dependency -->
+	
+	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-core</artifactId>
+	    <version>${hibernate.version}</version>
+	</dependency>
+
+	
+	<!-- Database Connection Pooling -->
+	<dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-dbcp2</artifactId>
+	    <version>2.1.1</version>
+	</dependency>
+	
   </dependencies>
   
   <build>
