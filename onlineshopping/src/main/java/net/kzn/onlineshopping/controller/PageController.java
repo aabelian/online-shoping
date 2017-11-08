@@ -45,7 +45,7 @@ public class PageController {
 	}
 	
 	/**
-	 * Method to load all the products and bassed on categories
+	 * Method to load all the products and based on categories
 	 * 
 	 */
 	@RequestMapping(value = "show/all/products")
