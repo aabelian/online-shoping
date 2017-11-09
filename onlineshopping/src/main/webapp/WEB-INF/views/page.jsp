@@ -55,16 +55,14 @@
 		<%@include file="about.jsp" %>
 	</c:if>
 
-
 	<!-- Load only when user clicks Contact Us -->
 	<c:if test="${userClickContact == true }">
-		<%@include file="contact.jsp" %>
+	<%@include file="contact.jsp" %>
 	</c:if>
-
-	<!-- Load only when user clicks Contact Us -->
-	<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
-		<%@include file="listProducts.jsp" %>
-	</c:if>
+	<!-- Load only when user clicks List of Products -->
+	<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true }" >
+	<%@include file="listProducts.jsp" %></c:if>
+	
 
 	</div><!-- End Content -->
     <!-- FOOTER comes here -->
