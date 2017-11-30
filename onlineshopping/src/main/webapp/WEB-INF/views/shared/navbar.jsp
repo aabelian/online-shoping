@@ -18,8 +18,11 @@
             </li>
             
               <li class="nav-item" id="listProducts">
-              <a class="nav-link" href="${contextRoot}/show/all/products">All Products
+              	<a class="nav-link" href="${contextRoot}/show/all/products">All Products
               	<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" id="manageProducts">
+              	<a class="nav-link" href="${contextRoot}/manage/products">Manage Products</a>
             </li>
           </ul>
         </div>

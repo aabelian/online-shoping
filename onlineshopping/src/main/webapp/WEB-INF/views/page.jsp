@@ -23,6 +23,7 @@
     
     <script>
     	window.menu ='${title}';
+    	window.contextRoot = '${contextRoot}'
     </script>
 
     <!-- Bootstrap core CSS -->
@@ -30,6 +31,9 @@
     
     <!-- Bootstrap Sketch Theme-->
     <%-- <link href="${css}/bootstrap-sketch-theme.css" rel="stylesheet"> --%>
+   	
+   	<!-- DataTables Bootstrap -->
+    <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="${css}/myapp.css" rel="stylesheet">
@@ -55,22 +59,45 @@
 		<%@include file="about.jsp" %>
 	</c:if>
 
+
 	<!-- Load only when user clicks Contact Us -->
 	<c:if test="${userClickContact == true }">
-	<%@include file="contact.jsp" %>
+		<%@include file="contact.jsp" %>
 	</c:if>
-	<!-- Load only when user clicks List of Products -->
-	<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true }" >
-	<%@include file="listProducts.jsp" %></c:if>
 	
+	<!-- Load only when user clicks List of Products -->
+	<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true }">
+		<%@include file="listProducts.jsp" %>
+	</c:if>
+
+	<!-- Load only when user clicks single Product -->
+	<c:if test="${userClickShowProduct == true }">
+		<%@include file="singleProduct.jsp" %>
+	</c:if>
+	
+	<!-- Load only when user clicks manage products -->
+	<c:if test="${userClickManageProducts == true }">
+		<%@include file="manageProducts.jsp" %>
+	</c:if>
 
 	</div><!-- End Content -->
+	
+	
     <!-- FOOTER comes here -->
     <%@include file="./shared/footer.jsp" %>
 
-    <!-- Bootstrap core JavaScript -->
+    <!-- jQuery -->
     <script src="${js}/jquery.js"></script>
+    
+    <!-- Bootstrap core JavaScript -->
     <script src="${js}/bootstrap.bundle.min.js"></script>
+    
+	<!-- DataTable Plugin -->
+	<script src="${js}/jquery.dataTables.js"></script>
+	
+	<!-- DataTable Bootstrap -->
+	<script src="${js}/dataTables.bootstrap4.js"></script>
+	
 	<!-- Self coded JavaScript -->
     <script src="${js}/myapp.js"></script>
     
