@@ -97,6 +97,9 @@
 	
 	<!-- DataTable Bootstrap -->
 	<script src="${js}/dataTables.bootstrap4.js"></script>
+		
+	<!-- BootBox Alert -->
+	<script src="${js}/bootbox.min.js"></script>
 	
 	<!-- Self coded JavaScript -->
     <script src="${js}/myapp.js"></script>
