@@ -76,7 +76,7 @@
 						
 						<!-- File element for image upload -->
 						<div class="form-group">
-							<label class="control-label col-md-4">Upload a file</label>
+							<label class="control-label col-md-4">Select an Image: </label>
 							<div class="col-md-8">
 								<sf:input type="file" path="file" class="form-control"/>
 								<sf:errors path="file" cssClass="help-block" element="em"/> 
