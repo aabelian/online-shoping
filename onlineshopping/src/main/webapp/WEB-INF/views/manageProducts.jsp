@@ -90,9 +90,14 @@
 									items="${categories}"
 									itemLabel="name"
 									itemValue="id"
-									
 								/>
-
+								<c:if test="${product.id == 0}">
+								<div class="text-right">
+									<br/>			
+																							
+									<button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myCategoryModal">Add New Category</button>
+								</div>	
+								</c:if>
 							</div>
 						</div>
 						
@@ -133,6 +138,7 @@
 					<tr>					
 						<th>Id</th>
 						<th>&#160;</th>
+						<th>brand</th>
 						<th>Name</th>
 						<th>Quantity</th>
 						<th>Unit Price</th>
@@ -141,57 +147,11 @@
 					</tr>					
 				</thead>
 				
-				<tbody>
-					<tr>
-						<td>4</td>
-						<td>
-							<img class="adminDataTableImg" scr="${contextRoot}/resources/images/PRDMNO123PQRX.jpg 
-							alt="Macbook Pro"/>
-						
-						</td>
-						<td>Macbook Pro</td>
-						<td>3</td>
-						<td>&#8377; 540000.00/-</td>
-						<td>
-							<!-- Toggle Switch -->
-							<label class="switch">
-								<input type="checkbox" checked="checked" value="4" />
-								<div class="slider"></div>
-							</label>
-						</td>
-						<td>
-							<a href="${contextRoot}/manage/4/product" class="btn btn-warning"></a>
-							<span class="glyphicon glyphicon-pencul"> </span>
-						</td>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td>
-							<img class="adminDataTableImg" scr="${contextRoot}/resources/images/PRDMNO123PQRX.jpg 
-							alt="Macbook Pro"/>
-						
-						</td>
-						<td>Macbook Pro</td>
-						<td>3</td>
-						<td>&#8377; 540000.00/-</td>
-						<td>
-							<!-- Toggle Switch -->
-							<label class="switch">
-								<input type="checkbox"  value="4" />
-								<div class="slider"></div>
-							</label>
-						</td>
-						<td>
-							<a href="${contextRoot}/manage/4/product" class="btn btn-warning"></a>
-							<span class="glyphicon glyphicon-pencul"> </span>
-						</td>
-					</tr>
-				</tbody>
-				
 				<tfoot>
 					<tr>					
 						<th>Id</th>
 						<th>&#160;</th>
+						<th>brand</th>
 						<th>Name</th>
 						<th>Quantity</th>
 						<th>Unit Price</th>
@@ -208,5 +168,41 @@
 		
 	</div>
 
-
+		<div class="modal fade" id="myCategoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">New Category</h4>
+	      </div>
+	      <div class="modal-body">
+				<!-- Category Form -->
+				<sf:form id="categoryForm" modelAttribute="category" class="form-horizontal"  action="${contextRoot}/manage/category" 
+						method="POST">
+	        	
+       			<div class="form-group">
+					<label for="category_name" class="control-label col-md-4">Category Name</label>
+					<div class="col-md-8">
+						<sf:input type="text" path="name" id="category_name" class="form-control"/> 
+					</div>
+				</div>
+       			
+       			<div class="form-group">				
+					<label for="category_description" class="control-label col-md-4">Description</label>
+					<div class="col-md-8">
+						<sf:textarea cols="" rows="5" path="description" id="category_description" class="form-control"/> 
+					</div>
+				</div>	        	        
+	        
+	        
+				<div class="form-group">				
+					<div class="col-md-offset-4 col-md-8">					
+						<input type="submit"  value="Save" class="btn btn-primary"/>						
+					</div>
+				</div>	        
+	        </sf:form>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

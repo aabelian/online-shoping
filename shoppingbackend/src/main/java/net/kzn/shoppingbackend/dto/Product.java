@@ -14,6 +14,8 @@ import javax.validation.constraints.Min;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 @Entity
@@ -30,6 +32,7 @@ public class Product {
 	private String name;
 	@NotBlank(message = "Please enter the Brand Name!")
 	private String brand;
+	@JsonIgnore
 	@NotBlank(message = "Please enter the description for Product!")
 	private String description;
 	@Column(name = "unit_price")
@@ -38,8 +41,10 @@ public class Product {
 	private int quantity;
 	@Column(name = "is_active")	
 	private boolean active;
+	@JsonIgnore
 	@Column(name = "category_id")
 	private int categoryId;
+	@JsonIgnore
 	@Column(name = "supplier_id")
 	private int supplierId;
 	private int purchases;
