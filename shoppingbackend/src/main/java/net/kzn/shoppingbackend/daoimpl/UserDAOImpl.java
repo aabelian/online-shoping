@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import net.kzn.shoppingbackend.dao.UserDAO;
 import net.kzn.shoppingbackend.dto.Address;
+import net.kzn.shoppingbackend.dto.Cart;
 import net.kzn.shoppingbackend.dto.User;
 
 
@@ -36,12 +37,13 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public boolean add(User user) {
+	public boolean addUser(User user) {
 		try {			
 			sessionFactory.getCurrentSession().persist(user);			
 			return true;
 		}
 		catch(Exception ex) {
+			ex.printStackTrace();
 			return false;
 		}
 	}
@@ -54,47 +56,21 @@ public class UserDAOImpl implements UserDAO {
 			return true;
 		}
 		catch(Exception ex) {
+			ex.printStackTrace();
 			return false;
 		}
 	}
 	
 	@Override
-	public boolean updateAddress(Address address) {
+	public boolean updateCart(Cart cart) { 
 		try {			
-			sessionFactory.getCurrentSession().update(address);			
+			
+			sessionFactory.getCurrentSession().update(cart);			
 			return true;
 		}
 		catch(Exception ex) {
+			ex.printStackTrace();
 			return false;
-		}
-	}	
-	
-
-	@Override
-	public List<Address> listShippingAddresses(int userId) {
-		String selectQuery = "FROM Address WHERE userId = :userId AND shipping = :isShipping ORDER BY id DESC";
-		return sessionFactory
-				.getCurrentSession()
-					.createQuery(selectQuery,Address.class)
-						.setParameter("userId", userId)
-						.setParameter("isShipping", true)
-							.getResultList();
-		
-	}
-
-	@Override
-	public Address getBillingAddress(int userId) {
-		String selectQuery = "FROM Address WHERE userId = :userId AND billing = :isBilling";
-		try{
-		return sessionFactory
-				.getCurrentSession()
-					.createQuery(selectQuery,Address.class)
-						.setParameter("userId", userId)
-						.setParameter("isBilling", true)
-						.getSingleResult();
-		}
-		catch(Exception ex) {
-			return null;
 		}
 	}
 
@@ -108,16 +84,49 @@ public class UserDAOImpl implements UserDAO {
 			return null;
 		}
 	}
-
 	@Override
-	public Address getAddress(int addressId) {
-		try {			
-			return sessionFactory.getCurrentSession().get(Address.class, addressId);			
+	public Address getBillingAddress(User user){
+		String selectQuery = "FROM Address WHERE user = :user AND billing = :billing";
+		
+		try {
+			
+			return sessionFactory.getCurrentSession()
+						.createQuery(selectQuery, Address.class)
+							.setParameter("user", user)
+							.setParameter("billing", true)
+							.getSingleResult();
+			
 		}
-		catch(Exception ex) {
-			System.out.println(ex.getMessage());
+		catch(Exception ex){
+			ex.printStackTrace();
 			return null;
 		}
+		
 	}
+	
+
+	
+	
+	@Override
+	public List<Address> listShippingAddresses(User user){
+		
+String selectQuery = "FROM Address WHERE user = :user AND shipping = :shipping";
+		
+		try {
+			
+			return sessionFactory.getCurrentSession()
+						.createQuery(selectQuery, Address.class)
+							.setParameter("user", user)
+							.setParameter("shipping", true)
+							.getResultList();
+			
+		}
+		catch(Exception ex){
+			ex.printStackTrace();
+			return null;
+		}
+		
+	}
+	
 
 }

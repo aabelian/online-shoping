@@ -1,5 +1,6 @@
 package net.kzn.shoppingbackend.dao;
 
+
 import java.util.List;
 
 import net.kzn.shoppingbackend.dto.Address;
@@ -12,15 +13,16 @@ public interface UserDAO {
 	User getByEmail(String email);
 	User get(int id);
 
-	boolean add(User user);
+	boolean addUser(User user);
 	
-	// adding and updating a new address
-	Address getAddress(int addressId);
 	boolean addAddress(Address address);
-	boolean updateAddress(Address address);
-	Address getBillingAddress(int userId);
-	List<Address> listShippingAddresses(int userId);
+	// alternative
+	//Address getBillingAddress(int userId);
+	//List<Address> listShippingAddresses(int userId);
 	
+	Address getBillingAddress(User user);
+	List<Address> listShippingAddresses(User user);
+	//
+	boolean updateCart(Cart cart);
 
-	
 }

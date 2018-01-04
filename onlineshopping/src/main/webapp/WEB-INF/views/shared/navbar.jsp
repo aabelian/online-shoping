@@ -25,6 +25,42 @@
               	<a class="nav-link" href="${contextRoot}/manage/products">Manage Products</a>
             </li>
           </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li id="register">
+              	<a class="nav-link" href="${contextRoot}/register">Sign up</a>
+            </li>
+            <li id="login">
+              	<a class="nav-link" href="${contextRoot}/login">Login</a>
+            </li>
+            
+			<li class="dropdown">
+			  <a href="javascript:void(0)" 
+			  		class="btn btn-default dropdown-toggle" 
+			  		id="dropdownMenu1" 
+			  		data-toggle="dropdown">
+			  				
+			   		${userModel.fullName}
+			    	<span class="caret"></span>
+			  </a>
+			  <ul class="dropdown-menu">
+                   <li>
+                    
+                        <a href="${contextRoot}/cart">
+                        	<span class="glyphicon glyphicon-shopping-cart"></span>
+                        	<span class="badge">${userModel.cart.cartLines}</span> 
+                        	- &#8377; ${userModel.cart.grandTotal}
+                        </a>
+                    </li>		     
+                	<li role="separator" class="divider"></li>	                                   
+                  
+					<li>
+                       <a href="${contextRoot}/logout">Logout</a>
+               		</li>                    			    	
+			  </ul>		
+			</li>    
+          
+          </ul>
+          
         </div>
       </div>
     </nav>

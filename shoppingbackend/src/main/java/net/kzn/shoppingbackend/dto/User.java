@@ -23,7 +23,10 @@ public class User implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+	/**
+	 * private fields for user
+	 */
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -39,19 +42,34 @@ public class User implements Serializable{
 	@Column(name = "contact_number")
 	private String contactNumber;
 	private String role;
+	
 	@NotBlank(message = "Please enter password!")
 	private String password;
+	
 	private boolean enabled = true;
+	
+	//confirm password transient field
 	@Transient
 	private String confirmPassword;
-
+	
 	public String getConfirmPassword() {
 		return confirmPassword;
 	}
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
+	public void setConfirmPassword(String confirmpassword) {
+		this.confirmPassword = confirmpassword;
 	}
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+	private Cart cart;
 	
+	public Cart getCart() {
+		return cart;
+	}
+	public void setCart(Cart cart) {
+		this.cart = cart;
+	}
+	/*
+	 * setter and getter for the fields 
+	 * */
 	public int getId() {
 		return id;
 	}
@@ -100,22 +118,14 @@ public class User implements Serializable{
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
-	
+	/**
+	 * toString for logging and debugging activity
+	 */
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ ", contactNumber=" + contactNumber + ", role=" + role + ", password=" + password + ", enabled="
 				+ enabled + "]";
-	}
-	
-	
-	@OneToOne(mappedBy="user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private Cart cart;
-	public Cart getCart() {
-		return cart;
-	}
-	public void setCart(Cart cart) {
-		this.cart = cart;
 	}
 	
 }
