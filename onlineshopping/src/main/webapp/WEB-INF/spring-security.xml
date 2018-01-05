@@ -24,7 +24,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 		<intercept-url pattern="/**" access="permitAll" />
 		<form-login login-page="/login" />
 		<access-denied-handler error-page="/access-denied"/>
-		<logout />
+		
 		<!-- <csrf disabled="true"/> -->
 	</http>
 	

@@ -44,7 +44,7 @@
     <%-- <link href="${css}/bootstrap.min.css" rel="stylesheet"> --%>
     
     <!-- Bootstrap Sketch Theme-->
-    <link href="${css}/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="${css}/bootstrap-my-theme.css" rel="stylesheet">
    	
    	<!-- DataTables Bootstrap -->
     <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
