@@ -61,19 +61,6 @@ public class UserDAOImpl implements UserDAO {
 			return false;
 		}
 	}
-	
-	@Override
-	public boolean updateCart(Cart cart) { 
-		try {			
-			
-			sessionFactory.getCurrentSession().update(cart);			
-			return true;
-		}
-		catch(Exception ex) {
-			ex.printStackTrace();
-			return false;
-		}
-	}
 
 	@Override
 	public User get(int id) {
@@ -111,8 +98,7 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public List<Address> listShippingAddresses(User user){
 		
-String selectQuery = "FROM Address WHERE user = :user AND shipping = :shipping";
-		
+		String selectQuery = "FROM Address WHERE user = :user AND shipping = :shipping";
 		try {
 			
 			return sessionFactory.getCurrentSession()
@@ -120,7 +106,6 @@ String selectQuery = "FROM Address WHERE user = :user AND shipping = :shipping";
 							.setParameter("user", user)
 							.setParameter("shipping", true)
 							.getResultList();
-			
 		}
 		catch(Exception ex){
 			ex.printStackTrace();
@@ -128,6 +113,4 @@ String selectQuery = "FROM Address WHERE user = :user AND shipping = :shipping";
 		}
 		
 	}
-	
-
 }
