@@ -15,6 +15,10 @@ import net.kzn.onlineshopping.service.CartService;
 @RequestMapping("/cart")
 public class CartController {
 	
+	
+	@Autowired
+	private CartService cartService;
+	
 	@RequestMapping("/show")
 	public ModelAndView showCart() {
 		
@@ -22,7 +26,7 @@ public class CartController {
 		
 		mv.addObject("title", "User Cart");
 		mv.addObject("userClickShowCart", true);
-		mv.addObject("cartLines", null);
+		mv.addObject("cartLines", cartService.getCartLines());
 		
 //		if(result!=null) {
 //			switch(result) {

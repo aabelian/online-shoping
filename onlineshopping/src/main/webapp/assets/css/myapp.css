@@ -294,3 +294,12 @@ input:checked + .slider:before {
 .table-responsive {
 	overflow-x: inherit;
 }
+
+.cartImg {
+	width: 100px;
+	height: 100px;
+}
+
+.unavailable {
+	color: red;
+}
