@@ -42,7 +42,7 @@ public class CartLineTestCase {
 	public void testAddNewCartLine() {
 		
 		// fetch the user and then cart of that user
-		user = userDAO.getByEmail("us@host.com");		
+		user = userDAO.getByEmail("kn@gmail.com");		
 		
 		cart = user.getCart();
 		
